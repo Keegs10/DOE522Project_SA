@@ -6,6 +6,16 @@ on:
       - main
 
 jobs:
+  debug:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Debug Information
+      run: |
+        echo "Workflow is running"
+        echo "Current Directory: $PWD"
+        echo "Contents of Directory: $(ls)"
+
   build:
     runs-on: ubuntu-latest
 
