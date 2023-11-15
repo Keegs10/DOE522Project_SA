@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "echo 'No build process specified'",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
