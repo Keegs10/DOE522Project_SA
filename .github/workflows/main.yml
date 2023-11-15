@@ -54,5 +54,6 @@ jobs:
       run: echo "Deploy application to staging"
 
     - name: Notify on failure
-      if: '!success()'
+      if: always() && failure()
       run: echo "Notification: Deployment failed"
+      
