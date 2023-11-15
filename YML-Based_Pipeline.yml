@@ -1,0 +1,23 @@
+name: CI/CD Pipeline
+
+trigger:
+  branches:
+    exclude:
+      - main
+
+jobs:
+  - job: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - checkout: self
+      - script: |
+          npm install
+          npm run build
+        displayName: 'Build Application'
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          artifactName: 'app-artifact'
+          publishLocation: 'container'
+        displayName: 'Publish Artifact'
