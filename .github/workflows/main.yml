@@ -55,5 +55,5 @@ jobs:
 
     - name: Notify on failure
       if: always() && failure()
-      run: echo "Notification: Deployment failed"
-      
+      run: |
+        echo "Notification: Deployment failed"
