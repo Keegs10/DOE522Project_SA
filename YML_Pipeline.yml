@@ -1,0 +1,26 @@
+trigger:
+- '*'
+
+pool:
+  vmImage: 'windows-latest'
+
+jobs:
+- job: Build
+  displayName: 'Build Job'
+  steps:
+  - checkout: self
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '3.x'
+      installationPath: $(Agent.ToolsDirectory)/dotnet
+  - script: dotnet restore
+    displayName: 'Restore NuGet Packages'
+  - script: dotnet build --configuration Release
+    displayName: 'Build Solution'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'drop'
+      publishLocation: 'container'
+    displayName: 'Publish Artifact'
