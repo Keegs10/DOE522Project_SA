@@ -80,4 +80,5 @@ jobs:
 
     - name: Notify on failure
       if: always() && failure()
-      run: echo "Notification: Build or tests failed. Check the job logs for details."
+      run: |
+        echo "Notification: Build or tests failed. Check the job logs for details."
