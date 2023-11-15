@@ -20,9 +20,11 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./DOE522Project_SA  # Specify the working directory
 
     - name: Build
       run: npm run build
+      working-directory: ./DOE522Project_SA  # Specify the working directory
 
   test:
     runs-on: ubuntu-latest
@@ -38,9 +40,11 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./DOE522Project_SA
 
     - name: Run unit tests
       run: npm test
+      working-directory: ./DOE522Project_SA
 
     - name: Code quality checks
       run: echo "Add code quality check commands"
@@ -59,6 +63,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./DOE522Project_SA
 
     - name: Deploy to staging environment
       run: echo "Add deployment commands"
