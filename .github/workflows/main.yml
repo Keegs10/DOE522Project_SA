@@ -31,7 +31,7 @@ jobs:
       run: npm run lint
 
     - name: Notify on failure
-      if: always()
+      if: failure()
       run: echo "Notification: Build or tests failed. Check the job logs for details."
 
   deploy:
