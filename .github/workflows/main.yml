@@ -31,13 +31,9 @@ jobs:
       run: npm run lint
 
     - name: Notify on failure
-      if: always() && failure()
+      if: '!success()'
       run: |
-        if [ ${{ failure() }} = 'true' ]; then
         echo "Notification: Build or tests failed. Check the job logs for details."
-        fi
-
-
 
   deploy:
     runs-on: ubuntu-latest
@@ -58,8 +54,6 @@ jobs:
       run: echo "Deploy application to staging"
 
     - name: Notify on failure
-      if: always() && failure()
+      if: '!success()'
       run: |
-        if [ ${{ failure() }} = 'true' ]; then
-          echo "Notification: Deployment failed. Check the job logs for details."
-        fi
+        echo "Notification: Deployment failed. Check the job logs for details."
