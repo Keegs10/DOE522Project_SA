@@ -13,18 +13,26 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
     - name: Build
-      run: echo "Add build commands here"
+      run: npm run build
 
-  test:
-    runs-on: ubuntu-latest
+    - name: Test
+      run: npm test
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Code quality checks
+      run: npm run lint  # Replace with your actual linting command
 
-    - name: Run unit tests
-      run: echo "Add test commands here"
+    - name: Notify on failure
+      if: failure()
+      run: echo "Notification: Build or tests failed"  # Replace with your actual notification command
 
   deploy:
     runs-on: ubuntu-latest
@@ -33,5 +41,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
     - name: Deploy to staging environment
-      run: echo "Add deployment commands here"
+      run: echo "Deploy your application to staging here"  # Replace with your actual deployment command
+
+    - name: Notify on failure
+      if: failure()
+      run: echo "Notification: Deployment failed"  # Replace with your actual notification command
