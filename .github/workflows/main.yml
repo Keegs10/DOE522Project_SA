@@ -6,16 +6,6 @@ on:
       - main
 
 jobs:
-  debug:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Debug Information
-      run: |
-        echo "Workflow is running"
-        echo "Current Directory: $PWD"
-        echo "Contents of Directory: $(ls)"
-
   build:
     runs-on: ubuntu-latest
 
@@ -53,7 +43,7 @@ jobs:
       run: npm test
 
     - name: Code quality checks
-      # Add code quality check commands
+      run: echo "Add code quality check commands"
 
   deploy:
     runs-on: ubuntu-latest
@@ -71,4 +61,4 @@ jobs:
       run: npm install
 
     - name: Deploy to staging environment
-      # Add deployment commands
+      run: echo "Add deployment commands"
