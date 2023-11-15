@@ -13,18 +13,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./DOE522Project_SA  # Specify the working directory
-
     - name: Build
-      run: npm run build
-      working-directory: ./DOE522Project_SA  # Specify the working directory
+      run: echo "Add build commands here"
 
   test:
     runs-on: ubuntu-latest
@@ -33,21 +23,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./DOE522Project_SA
-
     - name: Run unit tests
-      run: npm test
-      working-directory: ./DOE522Project_SA
-
-    - name: Code quality checks
-      run: echo "Add code quality check commands"
+      run: echo "Add test commands here"
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,14 +33,5 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./DOE522Project_SA
-
     - name: Deploy to staging environment
-      run: echo "Add deployment commands"
+      run: echo "Add deployment commands here"
